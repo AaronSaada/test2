@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Cars from './Cars.js'
+import Header from './Header.js'
 
 class Mycars extends Component {
 
@@ -11,7 +12,11 @@ class Mycars extends Component {
 
         return (
             <div>
-                <h1 style={{ color: mb }}>{title}</h1>
+                <Header myStyle={this.props.color}>
+                    {this.props.title}
+                </Header>
+
+                <p>Lorem</p>
 
                 <Cars color='red'>{car[0]}</Cars>
                 <Cars >{car[1]}</Cars>

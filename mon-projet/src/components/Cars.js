@@ -1,19 +1,18 @@
 
+import Header from './Header';
 import Wrapper from './Wrapper'
 
 function Cars({ color, children }) {
 
-    return ( 
-            <Wrapper>
-            <p>Marque:{children}</p>
-            <p>Couleur:{color ? color : "Neant"} </p>
-        </Wrapper>
-    );
+  return ( 
+    <Wrapper>
+      <p>Marque: {children}</p>
+      <p>Couleur: {color ? color : "Neant"} </p>
+    </Wrapper>
+  );
 }
 
 export default Cars;
-
-
 
 
 
