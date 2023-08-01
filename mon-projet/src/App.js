@@ -1,24 +1,20 @@
 import { Component } from 'react';
 import Mycars from './components/Mycars';
-
 import './App.css';
 
 class App extends Component {
 
   state = {
-    titre: 'Mon catalogue Voitures ',
-    color: 'green',
-    cars: ["Ford", "Mercedes", "Peugeot"]
+    titre: 'Mon Catalogue Voitures'
   }
 
   render() {
     return (
-      <div className="App">
-        <Mycars title={this.state.titre} mb={this.state.color} car={this.state.cars} />
+      <div className='App'>
+        <Mycars title={this.state.titre} />
       </div>
-    );
+    )
   }
-
 }
 
 export default App;

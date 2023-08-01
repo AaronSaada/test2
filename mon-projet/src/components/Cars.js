@@ -1,42 +1,18 @@
+const Car = ({color, children, year}) => {
 
-import Header from './Header';
-import Wrapper from './Wrapper'
+    const colorInfo = color ? <p>Couleur: {color}</p> : <p>Couleur: "Néant"</p>;
 
-function Cars({ color, children }) {
+    if (children) {
+        return (
+            <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto'} }>
+                <p>Marque: { children }</p>
+                <p>Age: { year }</p>
+                {colorInfo}
+            </div>
+        )
+    }
 
-  return ( 
-    <Wrapper>
-      <p>Marque: {children}</p>
-      <p>Couleur: {color ? color : "Neant"} </p>
-    </Wrapper>
-  );
+    // return null // ce return est Facultatif
 }
 
-export default Cars;
-
-
-
-
-
-/*
-const Cars =()=>{
-    <div className="contenaire">
-        <p>Marque:</p>
-        <p>Couleur:</p>
-        </div>
-}*/
-/*
-function Cars({children, color}){
-
-
-    return children ? (
-      <div style={ {
-        backgroundColor: 'pink', width: '400px', padding: '10px', margin:'5px auto'
-        } }>
-        <p>Marque: { children ? children : "Indisponible" }</p>
-        <p>Couleur: { color ? color : "Indisponible"}</p>
-      </div>
-    ) : <p>Informations indisponibles</p>
-  }
-  
-  export default Cars*/
+export default Car

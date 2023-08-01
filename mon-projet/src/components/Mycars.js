@@ -1,29 +1,31 @@
-import { Component } from "react";
-import Cars from './Cars.js'
+import { Component } from 'react'
+import Car from './Cars'
 
 class Mycars extends Component {
 
-    render() {
+    state = {
+        voitures: [
+            {name: 'Ford', color: 'red', year: 2000},
+            {name: 'Mercedes', color: 'blue', year: 2005},
+            {name: 'Peugeot', color: 'black', year: 2018},
+        ]
+    }
 
-        const { title } = this.props;
-        const { mb } = this.props;
-        const { car } = this.props;
+    render() {
 
         return (
             <div>
-                {/* <Header myStyle={this.props.color}>
-                    {this.props.title}
-                </Header> */}
                 <h1>{this.props.title}</h1>
 
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-
-                <Cars color='red'>{car[0]}</Cars>
-                <Cars >{car[1]}</Cars>
-                <Cars color="black">{car[2]}</Cars>
-
+                <button onClick={this.addTenYears}> + 10 ans </button>
+                    
+                <Car color={this.state.voitures[0].color} year={this.state.voitures[0].year}>{this.state.voitures[0].name}</Car>
+                <Car color={this.state.voitures[1].color} year={this.state.voitures[1].year}>{this.state.voitures[1].name}</Car>
+                <Car color={this.state.voitures[2].color} year={this.state.voitures[2].year}>{this.state.voitures[2].name}</Car>
             </div>
+           
         )
     }
 }
-export default Mycars;
+
+export default Mycars
