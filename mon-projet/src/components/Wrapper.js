@@ -1,7 +1,7 @@
-function Wrapper ({children}){
+function Wrapper ({nom}){
   return (
     <div style={{ backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto' }}>
-      {children}
+      {nom}
 
     </div>
   )
