@@ -1,13 +1,14 @@
 import { Component } from 'react'
 import Car from './Cars'
+import Welcome from './Welcome'
 
 class Mycars extends Component {
 
     state = {
         voitures: [
             {name: 'Ford', color: 'red', year: 2000},
-            {name: 'Mercedes', color: 'blue', year: 2005},
-            {name: 'Peugeot', color: 'black', year: 2018},
+            {name: 'Mercedes', color: 'blue', year: 2022},
+            {name: 'Peugeot', color: 'black', year: 2023},
         ],
         titre: 'Mon Catalogue Voitures 2'
     }
@@ -23,30 +24,46 @@ class Mycars extends Component {
         })
     }
 
+    getAge = year =>{
+        const now = new Date().getFullYear();
+        const age = now - year;
+
+        // ans, an
+        let frenchYearStr = "";
+        if(age === 1) {
+            frenchYearStr = "an";
+        }else if(age > 1){
+            frenchYearStr = "ans";
+        }
+        return `${age} ${frenchYearStr}` 
+    }
+
     render() {
 
-        const year = new Date().getFullYear();
+        
 
         return (
             <div>
+                <Welcome />
                 <h1>{this.state.titre}</h1>
 
                 <button onClick={this.addTenYears}> + 10 ans </button>
                     
-                {/* <Car color={this.state.voitures[0].color} year={year - this.state.voitures[0].year + ' ans'}>{this.state.voitures[0].name}</Car>
-                <Car color={this.state.voitures[1].color} year={year - this.state.voitures[1].year + ' ans'}>{this.state.voitures[1].name}</Car>
-                <Car color={this.state.voitures[2].color} year={year - this.state.voitures[2].year + ' ans'}>{this.state.voitures[2].name}</Car> */}
-
-                {
-                    this.state.voitures.map((voiture, index) => {
+            
+                
+                    {this.state.voitures.map(({name, color, year}, index) => {
                         return(
                             <div key={index}>
-                                <Car nom={voiture.name} color={voiture.color} year={year - voiture.year + ' ans'}></Car>
+                                <Car 
+                                    color={color} 
+                                    year={this.getAge(year)} 
+                                >
+                                    {name} 
+                                </Car>
                             </div>
                         )
                     })
                 }
-
             </div>
            
         )
